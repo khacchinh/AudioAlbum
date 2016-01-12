@@ -139,6 +139,8 @@ public class PlaySong extends JFrame {
             @Override
             public void windowClosing(WindowEvent e) {
                 player.stop();
+                player = new MP3Player();
+                ulrsong = null;
             }
         });
         
