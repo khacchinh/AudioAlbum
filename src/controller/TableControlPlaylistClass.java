@@ -96,7 +96,7 @@ public class TableControlPlaylistClass {
        // defaultTableModel.addColumn("Point");
        
         ArrayList<String> arrayList = null;
-        arrayList = playlistController.getAllDataPlaylistForPage(0, 5, UserController.userIns);
+        arrayList = playlistController.getAllDataPlaylistForPage(0, 10, UserController.userIns);
         for (int i=0;i<arrayList.size() ;i++){
             String playlist_arr[] = arrayList.get(i).split(":");
             defaultTableModel.addRow(new Object[] {playlist_arr[0],"Play","Delete",playlist_arr[1]});

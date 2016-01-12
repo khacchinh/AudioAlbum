@@ -32,14 +32,20 @@ public class TabbPanelAction implements ChangeListener{
             }
             else 
                 PlaylistController.page = (PlaylistController.lastOnline + PlaylistController.offset) / PlaylistController.offset + 1;
+            if (PlaylistController.page==0) PlaylistController.page =1;
             PanelPlaylistOnline.getInstant().updatePagePlaylist(PlaylistController.cur_page, PlaylistController.page);
                 
             System.out.println(PlaylistController.lastOnline);
 
-            PlaylistController.offset = 5;
+            PlaylistController.offset = 10;
             PlaylistController.lastOwn =  playlistController.getRowCount() - PlaylistController.offset;
-            FrameMain.getInstane().updatePlaylistCount(PlaylistController.lastOwn + PlaylistController.offset);
+            FrameMain.getInstane().updatePlaylistCount(playlistController.getRowCount());
+            if (((PlaylistController.lastOwn + PlaylistController.offset)% PlaylistController.offset) == 0){
+                PlaylistController.page = (PlaylistController.lastOwn + PlaylistController.offset) / PlaylistController.offset;
+            }
+            else 
             PlaylistController.page = (PlaylistController.lastOwn + PlaylistController.offset) / PlaylistController.offset + 1;
+            System.out.println(PlaylistController.page);
             FrameMain.getInstane().updatePagePlaylist(PlaylistController.cur_page, PlaylistController.page);
         }
     }

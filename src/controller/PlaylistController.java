@@ -32,7 +32,7 @@ public class PlaylistController implements ActionListener, ItemListener{
        private PlaylistModel playlistModel = new PlaylistModel();
        private static int start = 0;
        public static int lastOwn, lastOnline, offset;
-       public static int current = start, page = 0, cur_page =1;
+       public static int current = start, page = 1, cur_page =1;
        public PlaylistController(){
             
        }
@@ -185,13 +185,19 @@ public class PlaylistController implements ActionListener, ItemListener{
         int last = 0;
            try {
                if (FrameMain.getInstane().getJPanelPlaylistOwnVisible()){
-                    offset = 5;
+                    offset = 10;
                     lastOwn = playlistModel.getRowCount() - offset;
-                    FrameMain.getInstane().updatePlaylistCount(last + offset);  
+                    FrameMain.getInstane().updatePlaylistCount(playlistModel.getRowCount());  
                     last = lastOwn;
-                    if (lastOnline <=0 )
+                    if (lastOwn <=0 ){
                         page = lastOwn / offset + 1;
-                   else page = (lastOwn +offset) / offset + 1;
+                    }
+                   else {
+                        if (((lastOwn +offset) % offset)==0)
+                            page = (lastOwn +offset) / offset;
+                        else
+                            page = (lastOwn +offset) / offset + 1;
+                    }
                }
                else if (FrameMain.getInstane().getJPanelPlaylistOnlineVisible()){
                    offset = 10;
@@ -199,6 +205,7 @@ public class PlaylistController implements ActionListener, ItemListener{
                    if (lastOnline <=0 )
                         page = lastOnline / offset + 1;
                    else page = (lastOnline +offset) / offset + 1;
+                   
                }
            } catch (SQLException ex) {
                last = start;

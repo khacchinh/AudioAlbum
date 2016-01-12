@@ -70,7 +70,7 @@ public class PlaySong extends JFrame {
     private JTextField text_cmt = new JTextField();
     private ArrayList<Comment_Song> arr_comment_Song = new ArrayList<>();
     private static boolean firstplay = false;
-    private JLabel jl_song_name_playing = new JLabel();
+    public  JLabel jl_song_name_playing = new JLabel();
     private JLabel jl_play_image = new JLabel();
     public static PlaySong getInstane(){
         return ins;

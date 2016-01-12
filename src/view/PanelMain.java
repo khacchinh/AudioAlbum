@@ -315,7 +315,8 @@ public class PanelMain extends JPanel {
                             try {
                                 PlaySong.ulrsong = songController.getSRCSongByName(lb.getText());;
                                 PlaySong.cmt_song.setSongID(songController.getSongIDByName(lb.getText()));
-                                new PlaySong();
+                                PlaySong playSong = new PlaySong();
+                                playSong.jl_song_name_playing.setText(lb.getText());
                                 songController.updateLikeSong(PlaySong.cmt_song.getSongID());
                             } catch (IOException ex) {
                                 Logger.getLogger(TableControlSongClass.class.getName()).log(Level.SEVERE, null, ex);
@@ -411,7 +412,7 @@ public class PanelMain extends JPanel {
                             try {
                                 PlaySong.ulrsong = songController.getSRCSongByName(lb.getText());;
                                 PlaySong.cmt_song.setSongID(songController.getSongIDByName(lb.getText()));
-                                new PlaySong();
+                                new PlaySong().jl_song_name_playing.setText(lb.getText());
                                 songController.updateLikeSong(PlaySong.cmt_song.getSongID());
                             } catch (IOException ex) {
                                 Logger.getLogger(TableControlSongClass.class.getName()).log(Level.SEVERE, null, ex);

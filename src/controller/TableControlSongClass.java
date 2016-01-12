@@ -140,7 +140,7 @@ public class TableControlSongClass {
                 try {
                     PlaySong.ulrsong = songController.getSongByNameandUserID(song_name.split(":")[0], UserController.userIns).split(":")[0];
                     PlaySong.cmt_song.setSongID(Integer.parseInt(songController.getSongByNameandUserID(song_name.split(":")[0], UserController.userIns).split(":")[1]));
-                    new PlaySong();
+                    new PlaySong().jl_song_name_playing.setText(song_name.split(":")[0]);
                     songController.updateLikeSong(PlaySong.cmt_song.getSongID());
                 } catch (IOException ex) {
                     Logger.getLogger(TableControlSongClass.class.getName()).log(Level.SEVERE, null, ex);

@@ -25,7 +25,6 @@ import javax.swing.table.DefaultTableModel;
  * @author khacc
  */
 public class FrameMain extends javax.swing.JFrame {
-  //  private static ConnectController connectController = new ConnectController(); //create a new connect to database
     private PanelPlaylistOnline pPlaylistOnline = new PanelPlaylistOnline();
     private PanelSongOffline pSongOffline = new PanelSongOffline();
     private PanelMain pMain = new PanelMain();

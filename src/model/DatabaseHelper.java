@@ -5,6 +5,7 @@
  */
 package model;
 
+import controller.UserController;
 import java.sql.CallableStatement;
 import java.sql.Connection;
 import java.sql.DriverManager;
@@ -47,8 +48,10 @@ public class DatabaseHelper {
     
     public ResultSet getAllDataTable(String table_name){
         try{
-            String strQuery = "SELECT * FROM " +table_name;
+            String strQuery = "SELECT * FROM " +table_name + " where user_id = ?";
             PreparedStatement preStatemet = (PreparedStatement) getConnection().prepareStatement(strQuery);
+            preStatemet.setInt(1, UserController.userIns.getUserID());
+            System.out.println(preStatemet);
             if (!preStatemet.execute())  {
                 closeConn();
                 return null;
