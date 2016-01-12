@@ -299,7 +299,7 @@ public class SignUp extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(null,"User name đã tồn tại", "Lỗi", JOptionPane.WARNING_MESSAGE);
             return;
         }
-        user.setUserID(2);
+        user.setUserID(0);
         user.setUserPassword(ptxt_MatKhau1.getText());
         if(rbtn_Nam.isSelected())
             user.setUserGioitinh("Nam");
